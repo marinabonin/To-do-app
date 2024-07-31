@@ -35,11 +35,58 @@
         </span>
       </header>
       <main>
-        <!-- <input
-        type="text"
-        class="header__new-todo"
-        placeholder="Create a new todo..."
-      /> -->
+        <div class="new-todo">
+          <span class="new-todo__circle">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="25"
+              height="24"
+              viewBox="0 0 25 24"
+              fill="none"
+            >
+              <circle cx="12" cy="12" r="12" fill="white" stroke="#E3E4F1" />
+            </svg>
+          </span>
+          <input
+            type="text"
+            class="new-todo__input"
+            placeholder="Create a new todo..."
+          />
+        </div>
+        <div class="todo-list">
+          <div class="todo-list__item--checked">
+            <label class="checkbox">
+              <input
+                type="checkbox"
+                class="checkbox__input"
+                value="Complete online JavaScript course"
+                checked
+              />
+              <span></span>
+            </label>
+            <p>Complete online JavaScript course</p>
+          </div>
+          <div class="todo-list__item">
+            <label class="checkbox">
+              <input
+                type="checkbox"
+                class="checkbox__input"
+                value="Jog around the park 3x"
+              /><span></span>
+            </label>
+            <p>Jog around the park 3x</p>
+          </div>
+          <div class="filter">
+            <span>5 items left</span>
+            <div class="filter__status">
+              <span class="filter__status__all">All</span>
+              <span>Active</span>
+              <span>Completed</span>
+            </div>
+            <span>Clear Completed</span>
+          </div>
+        </div>
+        <span class="footer">Drag and drop to reorder list</span>
       </main>
     </div>
   </body>
