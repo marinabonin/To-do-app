@@ -12,11 +12,11 @@ label {
 
 body {
   position: relative;
+  font-family: "Josefin Sans", sans-serif;
 }
 
 p {
   margin-top: 3px;
-  font-family: "Josefin Sans", sans-serif;
 }
 
 .background-img {
@@ -47,7 +47,6 @@ p {
 }
 
 .header__title {
-  font-family: "Josefin Sans", sans-serif;
   color: #fff;
   font-size: 40px;
   letter-spacing: 15px;
@@ -81,7 +80,6 @@ p {
 .new-todo__input {
   border: none;
   flex: 1;
-  font-family: "Josefin Sans", sans-serif;
   font-size: 18px;
   font-weight: 400;
   letter-spacing: -0.25px;
@@ -90,6 +88,7 @@ p {
 
 .new-todo__input::placeholder {
   color: #9495a5;
+  font-family: "Josefin Sans", sans-serif;
 }
 
 /* TODO LIST */
@@ -120,17 +119,8 @@ p {
   display: none;
 }
 
-.todo-list__item--checked {
-  color: #d1d2da;
-  text-decoration: line-through;
-}
-
 .todo-list__item {
   color: #494c6b;
-}
-
-.todo-list__item--checked,
-.todo-list__item {
   letter-spacing: -0.25px;
   font-weight: 400;
   font-size: 18px;
@@ -141,13 +131,17 @@ p {
   gap: 24px;
 }
 
+.todo-list__item--checked {
+  color: #d1d2da;
+  text-decoration: line-through;
+}
+
 /*FILTER*/
 .filter {
   display: flex;
   justify-content: space-between;
   padding: 18px 24px;
   color: #9495a5;
-  font-family: "Josefin Sans", sans-serif;
   font-size: 14px;
   letter-spacing: -0.194px;
 }
@@ -167,7 +161,6 @@ p {
   padding-top: 48px;
   display: block;
   text-align: center;
-  font-family: "Josefin Sans", sans-serif;
   color: #9495a5;
   font-size: 14px;
   font-weight: 400;
