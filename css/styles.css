@@ -19,6 +19,10 @@ p {
   margin-top: 3px;
 }
 
+p:hover {
+  cursor: pointer;
+}
+
 .background-img {
   height: 300px;
   background-image: url(../assets/header-img-light.png),
@@ -115,6 +119,12 @@ p {
   background-size: cover;
 }
 
+.checkbox__input + span:hover {
+  background-image: url(../assets/hover-checkbox.png);
+  background-size: cover;
+  cursor: pointer;
+}
+
 .checkbox__input {
   display: none;
 }
@@ -143,6 +153,7 @@ p {
   padding: 18px 24px;
   color: #9495a5;
   font-size: 14px;
+  font-weight: 400;
   letter-spacing: -0.194px;
 }
 
@@ -152,8 +163,14 @@ p {
   gap: 19px;
 }
 
-.filter__status__all {
+.filter__status--active {
   color: #3a7cfd;
+}
+
+.filter__status span:hover,
+.filter__completed:hover {
+  color: #494c6b;
+  cursor: pointer;
 }
 
 /*FOOTER*/
