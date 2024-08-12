@@ -17,10 +17,7 @@ body {
 
 p {
   margin-top: 3px;
-}
-
-p:hover {
-  cursor: pointer;
+  flex: 1;
 }
 
 .background-img {
@@ -112,6 +109,7 @@ p:hover {
   border: solid 1px #e3e4f1;
 
   display: inline-flex;
+  cursor: pointer;
 }
 
 .checkbox__input:checked + span {
@@ -119,10 +117,8 @@ p:hover {
   background-size: cover;
 }
 
-.checkbox__input + span:hover {
-  background-image: url(../assets/hover-checkbox.png);
-  background-size: cover;
-  cursor: pointer;
+.checkbox__input:not(:checked) + span:hover {
+  border: solid 1px #3a7cfd;
 }
 
 .checkbox__input {
@@ -141,16 +137,30 @@ p:hover {
   gap: 24px;
 }
 
+.todo-list__item:hover {
+  cursor: pointer;
+}
+
+.todo-list__item:hover .todo-list__item__delete {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .todo-list__item--checked {
   color: #d1d2da;
   text-decoration: line-through;
+}
+
+.todo-list__item__delete {
+  display: none;
 }
 
 /*FILTER*/
 .filter {
   display: flex;
   justify-content: space-between;
-  padding: 18px 24px;
+  padding: 16px 24px 20px;
   color: #9495a5;
   font-size: 14px;
   font-weight: 400;
@@ -161,6 +171,10 @@ p:hover {
   font-weight: 700;
   display: flex;
   gap: 19px;
+}
+
+.filter__status--responsive {
+  display: none;
 }
 
 .filter__status--active {
@@ -182,4 +196,93 @@ p:hover {
   font-size: 14px;
   font-weight: 400;
   letter-spacing: -0.194px;
+}
+
+/*RESPONSIVE*/
+
+@media (max-width: 780px) {
+  .container {
+    max-width: 400px;
+    width: 100%;
+  }
+
+  .header__title {
+    font-size: 30px;
+    letter-spacing: 13px;
+  }
+
+  .header__mode svg {
+    width: 26.317px;
+    height: 27px;
+  }
+
+  .new-todo__input {
+    color: #9495a5;
+    font-size: 14px;
+    letter-spacing: -0.167px;
+  }
+
+  .new-todo {
+    margin-top: 40px;
+    margin-bottom: 16px;
+    padding: 14px 20px;
+    gap: 14px;
+  }
+
+  .new-todo__circle {
+    width: 20px;
+    height: 20px;
+  }
+
+  .todo-list__item {
+    letter-spacing: -0.167px;
+    font-size: 14px;
+    padding: 16px 20px;
+    gap: 14px;
+  }
+
+  .checkbox__input + span {
+    width: 20px;
+    height: 20px;
+  }
+
+  .todo-list__item__delete svg {
+    width: 12px;
+    height: 12px;
+  }
+
+  .filter {
+    font-size: 13px;
+    letter-spacing: -0.167px;
+    padding: 16px 20px 20px;
+  }
+
+  .filter__status {
+    display: none;
+  }
+
+  .filter__status--responsive {
+    display: flex;
+    justify-content: center;
+    gap: 19px;
+
+    margin-top: 16px;
+    padding: 16px 0px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 700;
+    color: #9495a5;
+    letter-spacing: -0.194px;
+    background: #fff;
+    box-shadow: 0px 35px 50px -15px rgba(194, 195, 214, 0.5);
+  }
+
+  .filter__status--responsive span:hover {
+    color: #494c6b;
+    cursor: pointer;
+  }
+
+  .footer {
+    padding-top: 40px;
+  }
 }
