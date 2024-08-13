@@ -33,6 +33,14 @@
   --border-bottom-color: #393a4b;
 }
 
+.dark .icon__moon {
+  display: none;
+}
+
+html:not(.dark) .icon__sun {
+  display: none;
+}
+
 label {
   display: flex;
   justify-content: center;
@@ -82,8 +90,12 @@ p {
   letter-spacing: 15px;
 }
 
+.header__mode {
+  cursor: pointer;
+}
+
 .header__mode path {
-  width: 25.113px;
+  width: 26px;
   height: 26px;
   fill: #fff;
 }
