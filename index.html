@@ -17,7 +17,7 @@
     <div class="container">
       <header class="header__title-mode">
         <h1 class="header__title">TODO</h1>
-        <span class="header__mode" id="switch" onclick="switchMode()"
+        <span class="header__mode" onclick="switchMode()"
           ><svg
             class="icon__moon"
             xmlns="http://www.w3.org/2000/svg"
@@ -54,12 +54,14 @@
         <div class="new-todo">
           <span class="new-todo__circle"></span>
           <input
+            id="new-todo"
             type="text"
             class="new-todo__input"
             placeholder="Create a new todo..."
+            id="new-todo"
           />
         </div>
-        <div class="todo-list">
+        <div class="todo-list" id="list">
           <div class="todo-list__item todo-list__item--checked">
             <label class="checkbox">
               <input
