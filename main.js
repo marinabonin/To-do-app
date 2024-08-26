@@ -41,7 +41,6 @@ function removeItem(event) {
 input.addEventListener("keypress", function (event) {
   if (event.key === "Enter") {
     const inputValue = input.value;
-    console.log(event);
 
     if (inputValue.trim() !== "") {
       const listItem = document.createElement("div");
@@ -59,7 +58,6 @@ input.addEventListener("keypress", function (event) {
 
 //remove todo
 const deleteElements = document.querySelectorAll(".todo-list__item__delete");
-console.log(deleteElements);
 
 deleteElements.forEach(function (deleteElem) {
   deleteElem.addEventListener("click", removeItem);
