@@ -38,6 +38,12 @@ function removeItem(event) {
   event.target.closest(".todo-list__item").remove();
 }
 
+function checkItem(event) {
+  event.target
+    .closest(".todo-list__item")
+    .classList.toggle("todo-list__item--checked");
+}
+
 input.addEventListener("keypress", function (event) {
   if (event.key === "Enter") {
     const inputValue = input.value;
@@ -49,6 +55,9 @@ input.addEventListener("keypress", function (event) {
       listItem
         .querySelector(".todo-list__item__delete")
         .addEventListener("click", removeItem);
+      listItem
+        .querySelector(".checkbox__input")
+        .addEventListener("click", checkItem);
       list.prepend(listItem);
 
       input.value = "";
@@ -61,4 +70,11 @@ const deleteElements = document.querySelectorAll(".todo-list__item__delete");
 
 deleteElements.forEach(function (deleteElem) {
   deleteElem.addEventListener("click", removeItem);
+});
+
+//checking items
+const checkboxItems = document.querySelectorAll(".checkbox__input");
+
+checkboxItems.forEach(function (checkboxItem) {
+  checkboxItem.addEventListener("click", checkItem);
 });
