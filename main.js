@@ -1,8 +1,10 @@
+//switch modes
 function switchMode() {
   const html = document.documentElement;
   html.classList.toggle("dark");
 }
 
+//add new todo
 const input = document.getElementById("new-todo");
 const list = document.getElementById("list");
 function getTemplate(inputValue) {
@@ -32,6 +34,10 @@ function getTemplate(inputValue) {
             </span>`;
 }
 
+function removeItem(event) {
+  event.target.closest(".todo-list__item").remove();
+}
+
 input.addEventListener("keypress", function (event) {
   if (event.key === "Enter") {
     const inputValue = input.value;
@@ -40,9 +46,19 @@ input.addEventListener("keypress", function (event) {
       const listItem = document.createElement("div");
       listItem.classList.add("todo-list__item");
       listItem.innerHTML = getTemplate(inputValue);
+      listItem
+        .querySelector(".todo-list__item__delete")
+        .addEventListener("click", removeItem);
       list.prepend(listItem);
 
       input.value = "";
     }
   }
+});
+
+//remove todo
+const deleteElements = document.querySelectorAll(".todo-list__item__delete");
+
+deleteElements.forEach(function (deleteElem) {
+  deleteElem.addEventListener("click", removeItem);
 });
