@@ -237,7 +237,7 @@ p {
 
 /*FOOTER*/
 .footer {
-  padding-top: 48px;
+  padding: 48px 0 24px;
   display: block;
   text-align: center;
   color: var(--placeholder-filter-footer-color);
@@ -327,6 +327,6 @@ p {
   }
 
   .footer {
-    padding-top: 40px;
+    padding-top: 40px 0 20px;
   }
 }
