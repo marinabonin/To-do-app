@@ -45,6 +45,17 @@ function completedFilter(event) {
   event.target.classList.add("filter__status--active");
 }
 
+function allFilter(event) {
+  const listItems = document.querySelectorAll(".todo-list__item");
+  listItems.forEach(function (item) {
+    item.style.display = "flex";
+  });
+
+  const searchActive = document.querySelector(".filter__status--active");
+  searchActive.classList.remove("filter__status--active");
+  event.target.classList.add("filter__status--active");
+}
+
 //add new todo
 const input = document.getElementById("new-todo");
 const list = document.getElementById("list");
@@ -74,7 +85,6 @@ function getTemplate(inputValue) {
               </svg>
             </span>`;
 }
-
 input.addEventListener("keypress", function (event) {
   if (event.key === "Enter") {
     const inputValue = input.value;
@@ -118,4 +128,10 @@ activeBtns.forEach(function (activeBtn) {
 const completedBtns = document.querySelectorAll(".filter__status__completed");
 completedBtns.forEach(function (completedBtn) {
   completedBtn.addEventListener("click", completedFilter);
+});
+
+//all filter
+const allBtns = document.querySelectorAll(".filter__status--active");
+allBtns.forEach(function (allBtn) {
+  allBtn.addEventListener("click", allFilter);
 });
