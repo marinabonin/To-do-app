@@ -4,6 +4,47 @@ function switchMode() {
   html.classList.toggle("dark");
 }
 
+//functions
+function removeItem(event) {
+  event.target.closest(".todo-list__item").remove();
+}
+
+function checkItem(event) {
+  event.target
+    .closest(".todo-list__item")
+    .classList.toggle("todo-list__item--checked");
+}
+
+function activeFilter(event) {
+  const listItems = document.querySelectorAll(".todo-list__item");
+  listItems.forEach(function (itemChecked) {
+    if (itemChecked.classList.contains("todo-list__item--checked")) {
+      itemChecked.style.display = "none";
+    } else {
+      itemChecked.style.display = "flex";
+    }
+  });
+
+  const searchActive = document.querySelector(".filter__status--active");
+  searchActive.classList.remove("filter__status--active");
+  event.target.classList.add("filter__status--active");
+}
+
+function completedFilter(event) {
+  const listItems = document.querySelectorAll(".todo-list__item");
+  listItems.forEach(function (itemActive) {
+    if (!itemActive.classList.contains("todo-list__item--checked")) {
+      itemActive.style.display = "none";
+    } else {
+      itemActive.style.display = "flex";
+    }
+  });
+
+  const searchActive = document.querySelector(".filter__status--active");
+  searchActive.classList.remove("filter__status--active");
+  event.target.classList.add("filter__status--active");
+}
+
 //add new todo
 const input = document.getElementById("new-todo");
 const list = document.getElementById("list");
@@ -34,28 +75,6 @@ function getTemplate(inputValue) {
             </span>`;
 }
 
-function removeItem(event) {
-  event.target.closest(".todo-list__item").remove();
-}
-
-function checkItem(event) {
-  event.target
-    .closest(".todo-list__item")
-    .classList.toggle("todo-list__item--checked");
-}
-
-function hideChecked(event) {
-  const checkedItems = document.querySelectorAll(".todo-list__item--checked");
-
-  checkedItems.forEach(function (itemChecked) {
-    itemChecked.style.display = "none";
-  });
-
-  const searchActive = document.querySelector(".filter__status--active");
-  searchActive.classList.remove("filter__status--active");
-  event.target.classList.add("filter__status--active");
-}
-
 input.addEventListener("keypress", function (event) {
   if (event.key === "Enter") {
     const inputValue = input.value;
@@ -79,19 +98,24 @@ input.addEventListener("keypress", function (event) {
 
 //remove todo
 const deleteElements = document.querySelectorAll(".todo-list__item__delete");
-
 deleteElements.forEach(function (deleteElem) {
   deleteElem.addEventListener("click", removeItem);
 });
 
 //checking items
 const checkboxItems = document.querySelectorAll(".checkbox__input");
-
 checkboxItems.forEach(function (checkboxItem) {
   checkboxItem.addEventListener("click", checkItem);
 });
 
-//filter
-const activeBtn = document.querySelector(".filter__status__active");
+//active filter
+const activeBtns = document.querySelectorAll(".filter__status__active");
+activeBtns.forEach(function (activeBtn) {
+  activeBtn.addEventListener("click", activeFilter);
+});
 
-activeBtn.addEventListener("click", hideChecked);
+//completed filter
+const completedBtns = document.querySelectorAll(".filter__status__completed");
+completedBtns.forEach(function (completedBtn) {
+  completedBtn.addEventListener("click", completedFilter);
+});
