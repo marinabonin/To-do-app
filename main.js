@@ -44,12 +44,16 @@ function checkItem(event) {
     .classList.toggle("todo-list__item--checked");
 }
 
-function hideChecked() {
+function hideChecked(event) {
   const checkedItems = document.querySelectorAll(".todo-list__item--checked");
 
   checkedItems.forEach(function (itemChecked) {
     itemChecked.style.display = "none";
   });
+
+  const searchActive = document.querySelector(".filter__status--active");
+  searchActive.classList.remove("filter__status--active");
+  event.target.classList.add("filter__status--active");
 }
 
 input.addEventListener("keypress", function (event) {
@@ -88,6 +92,6 @@ checkboxItems.forEach(function (checkboxItem) {
 });
 
 //filter
-const activeItems = document.querySelector(".filter__status__active");
+const activeBtn = document.querySelector(".filter__status__active");
 
-activeItems.addEventListener("click", hideChecked);
+activeBtn.addEventListener("click", hideChecked);
