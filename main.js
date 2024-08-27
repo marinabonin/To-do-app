@@ -16,8 +16,8 @@ function checkItem(event) {
 }
 
 function activeFilter(event) {
-  const checkedItems = document.querySelectorAll(".todo-list__item");
-  checkedItems.forEach(function (itemChecked) {
+  const listItems = document.querySelectorAll(".todo-list__item");
+  listItems.forEach(function (itemChecked) {
     if (itemChecked.classList.contains("todo-list__item--checked")) {
       itemChecked.style.display = "none";
     } else {
@@ -31,8 +31,8 @@ function activeFilter(event) {
 }
 
 function completedFilter(event) {
-  const activeItems = document.querySelectorAll(".todo-list__item");
-  activeItems.forEach(function (itemActive) {
+  const listItems = document.querySelectorAll(".todo-list__item");
+  listItems.forEach(function (itemActive) {
     if (!itemActive.classList.contains("todo-list__item--checked")) {
       itemActive.style.display = "none";
     } else {
