@@ -44,6 +44,18 @@ function checkItem(event) {
     .classList.toggle("todo-list__item--checked");
 }
 
+function hideChecked(event) {
+  const checkedItems = document.querySelectorAll(".todo-list__item--checked");
+
+  checkedItems.forEach(function (itemChecked) {
+    itemChecked.style.display = "none";
+  });
+
+  const searchActive = document.querySelector(".filter__status--active");
+  searchActive.classList.remove("filter__status--active");
+  event.target.classList.add("filter__status--active");
+}
+
 input.addEventListener("keypress", function (event) {
   if (event.key === "Enter") {
     const inputValue = input.value;
@@ -78,3 +90,8 @@ const checkboxItems = document.querySelectorAll(".checkbox__input");
 checkboxItems.forEach(function (checkboxItem) {
   checkboxItem.addEventListener("click", checkItem);
 });
+
+//filter
+const activeBtn = document.querySelector(".filter__status__active");
+
+activeBtn.addEventListener("click", hideChecked);
