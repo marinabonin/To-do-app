@@ -115,7 +115,7 @@ deleteElements.forEach(function (deleteElem) {
 //checking items
 const checkboxItems = document.querySelectorAll(".checkbox__input");
 checkboxItems.forEach(function (checkboxItem) {
-  checkboxItem.addEventListener("click", checkItem);
+  checkboxItem.addEventListener("change", checkItem);
 });
 
 //active filter
@@ -134,4 +134,17 @@ completedBtns.forEach(function (completedBtn) {
 const allBtns = document.querySelectorAll(".filter__status--active");
 allBtns.forEach(function (allBtn) {
   allBtn.addEventListener("click", allFilter);
+});
+
+//clear completed
+const clear = document.querySelector(".filter__completed");
+clear.addEventListener("click", function () {
+  const inputCheckboxs = document.querySelectorAll("[type='checkbox']");
+  inputCheckboxs.forEach(function (inputCheckbox) {
+    inputCheckbox.checked = false;
+  });
+  const checkeds = document.querySelectorAll(".todo-list__item--checked");
+  checkeds.forEach(function (checked) {
+    checked.classList.remove("todo-list__item--checked");
+  });
 });
